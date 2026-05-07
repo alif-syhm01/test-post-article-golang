@@ -56,11 +56,11 @@ func main() {
 	h := handler.NewPostHandler(svc)
 	r := router.NewRouter()
 
-	r.GET("/api/v1/article/{limit}/{offset}", h.GetAll)
-	r.POST("/api/v1/article", h.Create)
-	r.GET("/api/v1/article/{id}", h.GetById)
-	r.PUT("/api/v1/article/{id}", h.Update)
-	r.DELETE("/api/v1/article/{id}", h.Delete)
+	r.GET("/api/v1/articles/{limit}/{offset}", h.GetAll)
+	r.POST("/api/v1/articles", h.Create)
+	r.GET("/api/v1/articles/{id}", h.GetById)
+	r.PUT("/api/v1/articles/{id}", h.Update)
+	r.DELETE("/api/v1/articles/{id}", h.Delete)
 
 	fmt.Println("Server running on :8080")
 	http.ListenAndServe(":8080", r)

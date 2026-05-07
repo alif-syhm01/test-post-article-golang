@@ -18,27 +18,27 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/article/:limit/:offset",
+              "raw": "{{base_url}}/articles/:limit/:offset",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
-                "article",
+                "articles",
                 ":limit",
                 ":offset"
               ],
               "variable": [
                 {
                   "key": "limit",
-                  "value": ""
+                  "value": "10"
                 },
                 {
                   "key": "offset",
-                  "value": ""
+                  "value": "0"
                 }
               ]
             },
-            "description": "## GET ALL Articles\n\nMenampilkan semua artikel dengan pagination.\n\n### URL\n\nGET {{base_url}}/article/{limit}/{offset}\n\n### Path Variables\n\n- Limit: Integer | Required | 10 | Jumlah artikel yang ditampulkan per halaman\n    \n- offset: Integer | Required | 0 | Mulai dari data ke-berapa\n    \n\n### Example Request\n\nGET {{base_url}}/article/10/0\n\n### Success Response\n\n- Code: 200 OK\n    \n- Body: Array of article objects\n    \n\n### Example Success Response\n\n\\[  \n{  \n\"id\": 1,  \n\"title\": \"Judul Baru Yang Sudah Diupdate\",  \n\"content\": \"Konten baru yang sudah diupdate dengan minimal 200 karakter agar lolos validasi. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. iausdoiaksiw i8ushuhuqnsj siuahd iuashd wnuaishd wjisoa\",  \n\"category\": \"Bencana Alam\",  \n\"created_date\": \"2026-05-07T01:23:43+07:00\",  \n\"updated_date\": \"2026-05-07T01:23:43+07:00\",  \n\"status\": \"publish\"  \n},  \n{  \n\"id\": 2,  \n\"title\": \"Judul Baru Yang Sudah Diupdate\",  \n\"content\": \"Konten baru yang sudah diupdate dengan minimal 200 karakter agar lolos validasi. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. iausdoiaksiw i8ushuhuqnsj siuahd iuashd wnuaishd wjisoa\",  \n\"category\": \"Bencana Alam\",  \n\"created_date\": \"2026-05-07T01:26:30+07:00\",  \n\"updated_date\": \"2026-05-07T01:26:30+07:00\",  \n\"status\": \"publish\"  \n}  \n\\]\n\n### Error Response\n\n- Code: 400 Bad Request\n    \n- Body: Params error message\n    \n- Code : 500 Internal Server Error\n    \n- Body: Error Message"
+            "description": "## GET ALL Articles\n\nMenampilkan semua artikel dengan pagination.\n\n### URL\n\nGET {{base_url}}/articles/{limit}/{offset}\n\n### Path Variables\n\n- Limit: Integer | Required | 10 | Jumlah artikel yang ditampulkan per halaman\n    \n- offset: Integer | Required | 0 | Mulai dari data ke-berapa\n    \n\n### Example Request\n\nGET {{base_url}}/articles/10/0\n\n### Success Response\n\n- Code: 200 OK\n    \n- Body: Array of article objects\n    \n\n### Example Success Response\n\n\\[  \n{  \n\"id\": 1,  \n\"title\": \"Judul Baru Yang Sudah Diupdate\",  \n\"content\": \"Konten baru yang sudah diupdate dengan minimal 200 karakter agar lolos validasi. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. iausdoiaksiw i8ushuhuqnsj siuahd iuashd wnuaishd wjisoa\",  \n\"category\": \"Bencana Alam\",  \n\"created_date\": \"2026-05-07T01:23:43+07:00\",  \n\"updated_date\": \"2026-05-07T01:23:43+07:00\",  \n\"status\": \"publish\"  \n},  \n{  \n\"id\": 2,  \n\"title\": \"Judul Baru Yang Sudah Diupdate\",  \n\"content\": \"Konten baru yang sudah diupdate dengan minimal 200 karakter agar lolos validasi. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. iausdoiaksiw i8ushuhuqnsj siuahd iuashd wnuaishd wjisoa\",  \n\"category\": \"Bencana Alam\",  \n\"created_date\": \"2026-05-07T01:26:30+07:00\",  \n\"updated_date\": \"2026-05-07T01:26:30+07:00\",  \n\"status\": \"publish\"  \n}  \n\\]\n\n### Error Response\n\n- Code: 400 Bad Request\n    \n- Body: Params error message\n    \n- Code : 500 Internal Server Error\n    \n- Body: Error Message"
           },
           "response": []
         },
@@ -51,16 +51,16 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/article/99",
+              "raw": "{{base_url}}/articles/99",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
-                "article",
+                "articles",
                 "99"
               ]
             },
-            "description": "## GET Article\n\nMenampilkan artikel dengan berdasarkan id.\n\n### URL\n\nGET {{base_url}}/article/{id}\n\n### Path Variables\n\n- id: Integer | Required | Id yang ada pada data article dalam database\n    \n\n### Example Request\n\nGET {{base_url}}/article/1\n\n### Success Response\n\n- Code: 200 OK\n    \n- Body: object of article\n    \n\n### Example Success Response\n\n{  \n\"id\": 1,  \n\"title\": \"Judul Baru Yang Sudah Diupdate\",  \n\"content\": \"Konten baru yang sudah diupdate dengan minimal 200 karakter agar lolos validasi. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. iausdoiaksiw i8ushuhuqnsj siuahd iuashd wnuaishd wjisoa\",  \n\"category\": \"Bencana Alam\",  \n\"created_date\": \"2026-05-07T01:23:43+07:00\",  \n\"updated_date\": \"2026-05-07T01:23:43+07:00\",  \n\"status\": \"publish\"  \n}\n\n### Error Response\n\n- Code: 404 Not Found\n    \n- Body: Post not found message"
+            "description": "## GET Article\n\nMenampilkan artikel dengan berdasarkan id.\n\n### URL\n\nGET {{base_url}}/articles/{id}\n\n### Path Variables\n\n- id: Integer | Required | Id yang ada pada data article dalam database\n    \n\n### Example Request\n\nGET {{base_url}}/articles/1\n\n### Success Response\n\n- Code: 200 OK\n    \n- Body: object of article\n    \n\n### Example Success Response\n\n{  \n\"id\": 1,  \n\"title\": \"Judul Baru Yang Sudah Diupdate\",  \n\"content\": \"Konten baru yang sudah diupdate dengan minimal 200 karakter agar lolos validasi. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. iausdoiaksiw i8ushuhuqnsj siuahd iuashd wnuaishd wjisoa\",  \n\"category\": \"Bencana Alam\",  \n\"created_date\": \"2026-05-07T01:23:43+07:00\",  \n\"updated_date\": \"2026-05-07T01:23:43+07:00\",  \n\"status\": \"publish\"  \n}\n\n### Error Response\n\n- Code: 404 Not Found\n    \n- Body: Post not found message"
           },
           "response": []
         },
@@ -82,15 +82,15 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/article",
+              "raw": "{{base_url}}/articles",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
-                "article"
+                "articles"
               ]
             },
-            "description": "## CREATE Articles\n\nMembuat artikel baru.\n\n### URL\n\nPOST {{base_url}}/article\n\n### Request Body\n\n- title: String | Required | Min. 20 Karakter\n    \n- content: String | Required | Min. 200 Karakter\n    \n- category: String | Required | Min. 3 Karakter\n    \n- status: string\n    \n\n### Example Request\n\nPOST {{base_url}}/article  \n{\n\n\"title\": \"Judul Artikel Minimal 20 Karakter\",\n\n\"content\": \"Ini konten artikel yang panjang minimal 200 karakter agar lolos validasi yang ketat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\n\n\"category\": \"Teknologi\",\n\n\"status\": \"Draft\"\n\n}\n\n### Success Response\n\n- Code: 201 Created\n    \n- Body: JSON object article yang baru dibuat beserta ID\n    \n\n### Example Success Response\n\n{  \n\"id\": 1,  \n\"title\": \"Judul Artikel Minimal 20 Karakter\",  \n\"content\": \"Ini konten artikel yang panjang...\",  \n\"category\": \"Teknologi\",  \n\"status\": \"Draft\",  \n\"created_date\": \"2026-05-07T10:30:00Z\",  \n\"updated_date\": \"2026-05-07T10:30:00Z\"  \n}\n\n### Error Response\n\n- Code: 400 Bad Request\n    \n- Body: \"title is required\" (all fields required)\n    \n- Body: \"title must be at least 20 characters.\" (all fields need minimum length validation)\n    \n- Body: \"status must be publish, draft, or trash.\""
+            "description": "## CREATE Articles\n\nMembuat artikel baru.\n\n### URL\n\nPOST {{base_url}}/articles\n\n### Request Body\n\n- title: String | Required | Min. 20 Karakter\n    \n- content: String | Required | Min. 200 Karakter\n    \n- category: String | Required | Min. 3 Karakter\n    \n- status: string\n    \n\n### Example Request\n\nPOST {{base_url}}/articles  \n{\n\n\"title\": \"Judul Artikel Minimal 20 Karakter\",\n\n\"content\": \"Ini konten artikel yang panjang minimal 200 karakter agar lolos validasi yang ketat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\n\n\"category\": \"Teknologi\",\n\n\"status\": \"Draft\"\n\n}\n\n### Success Response\n\n- Code: 201 Created\n    \n- Body: JSON object article yang baru dibuat beserta ID\n    \n\n### Example Success Response\n\n{  \n\"id\": 1,  \n\"title\": \"Judul Artikel Minimal 20 Karakter\",  \n\"content\": \"Ini konten artikel yang panjang...\",  \n\"category\": \"Teknologi\",  \n\"status\": \"Draft\",  \n\"created_date\": \"2026-05-07T10:30:00Z\",  \n\"updated_date\": \"2026-05-07T10:30:00Z\"  \n}\n\n### Error Response\n\n- Code: 400 Bad Request\n    \n- Body: \"title is required\" (all fields required)\n    \n- Body: \"title must be at least 20 characters.\" (all fields need minimum length validation)\n    \n- Body: \"status must be publish, draft, or trash.\""
           },
           "response": []
         },
@@ -112,16 +112,16 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/article/12",
+              "raw": "{{base_url}}/articles/12",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
-                "article",
+                "articles",
                 "12"
               ]
             },
-            "description": "## UPDATE Article\n\nMengupdate data article dengan data yang baru.\n\n### URL\n\nPUT {{base_url}}/article/{id}\n\n### Path Variables\n\n- id: Integer | Required | Id yang ada pada data article dalam database\n    \n\n### Request Body\n\n- title: String | Required | Min. 20 Karakter\n    \n- content: String | Required | Min. 200 Karakter\n    \n- category: String | Required | Min. 3 Karakter\n    \n- status: string\n    \n\n### Example Request\n\nPUT {{base_url}}/article/1\n\n{  \n\"title\": \"Judul Artikel Minimal 25 Karakter\",  \n\"content\": \"Ini konten artikel yang panjang minimal 200 karakter agar lolos validasi yang ketat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",  \n\"category\": \"Budaya\",  \n\"status\": \"Publish\"  \n}\n\n### Success Response\n\n- Code: 200 OK\n    \n- Body: JSON object article yang baru diupdate beserta ID\n    \n\n### Example Success Response\n\n{  \n\"id\": 1,  \n\"title\": \"Judul Artikel Minimal 25 Karakter\",  \n\"content\": \"Ini konten artikel yang panjang minimal 200 karakter agar lolos validasi yang ketat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",  \n\"category\": \"Budaya\",\n\n\"created_date\": \"2026-05-07T01:23:43+07:00\",  \n\"updated_date\": \"2026-05-07T01:23:43+07:00\",  \n\"status\": \"Publish\"  \n}\n\n### Error Response\n\n- Code: 400 Bad Request\n    \n- Body: \"title is required\" (all fields required)\n    \n- Body: \"title must be at least 20 characters.\" (all fields need minimum length validation)\n    \n- Body: \"status must be publish, draft, or trash.\""
+            "description": "## UPDATE Article\n\nMengupdate data article dengan data yang baru.\n\n### URL\n\nPUT {{base_url}}/articles/{id}\n\n### Path Variables\n\n- id: Integer | Required | Id yang ada pada data article dalam database\n    \n\n### Request Body\n\n- title: String | Required | Min. 20 Karakter\n    \n- content: String | Required | Min. 200 Karakter\n    \n- category: String | Required | Min. 3 Karakter\n    \n- status: string\n    \n\n### Example Request\n\nPUT {{base_url}}/articles/1\n\n{  \n\"title\": \"Judul Artikel Minimal 25 Karakter\",  \n\"content\": \"Ini konten artikel yang panjang minimal 200 karakter agar lolos validasi yang ketat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",  \n\"category\": \"Budaya\",  \n\"status\": \"Publish\"  \n}\n\n### Success Response\n\n- Code: 200 OK\n    \n- Body: JSON object article yang baru diupdate beserta ID\n    \n\n### Example Success Response\n\n{  \n\"id\": 1,  \n\"title\": \"Judul Artikel Minimal 25 Karakter\",  \n\"content\": \"Ini konten artikel yang panjang minimal 200 karakter agar lolos validasi yang ketat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",  \n\"category\": \"Budaya\",\n\n\"created_date\": \"2026-05-07T01:23:43+07:00\",  \n\"updated_date\": \"2026-05-07T01:23:43+07:00\",  \n\"status\": \"Publish\"  \n}\n\n### Error Response\n\n- Code: 400 Bad Request\n    \n- Body: \"title is required\" (all fields required)\n    \n- Body: \"title must be at least 20 characters.\" (all fields need minimum length validation)\n    \n- Body: \"status must be publish, draft, or trash.\""
           },
           "response": []
         },
@@ -134,16 +134,16 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/article/7",
+              "raw": "{{base_url}}/articles/15",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
-                "article",
-                "7"
+                "articles",
+                "15"
               ]
             },
-            "description": "## DELETE Article\n\nmenghapus artikel dengan berdasarkan id.\n\n### URL\n\nDELETE {{base_url}}/article/{id}\n\n### Path Variables\n\n- id: Integer | Required | Id yang ada pada data article dalam database\n    \n\n### Example Request\n\nDELETE {{base_url}}/article/1\n\n### Success Response\n\n- Code: 204 No Content\n    \n\n### Error Response\n\n- Code: 404 Not Found\n    \n- Body: Post not found message\n    \n- Code: 500 Status Internal Server Error\n    \n- Body: Status internal server error message"
+            "description": "## DELETE Article\n\nmenghapus artikel dengan berdasarkan id.\n\n### URL\n\nDELETE {{base_url}}/articles/{id}\n\n### Path Variables\n\n- id: Integer | Required | Id yang ada pada data article dalam database\n    \n\n### Example Request\n\nDELETE {{base_url}}/articles/1\n\n### Success Response\n\n- Code: 204 No Content\n    \n\n### Error Response\n\n- Code: 404 Not Found\n    \n- Body: Post not found message\n    \n- Code: 500 Status Internal Server Error\n    \n- Body: Status internal server error message"
           },
           "response": []
         }

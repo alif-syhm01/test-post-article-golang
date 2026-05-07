@@ -25,8 +25,8 @@ Technical test: REST API Article dengan Golang.
 
 | Method | URL | Deskripsi |
 |---|---|---|
-| GET | /api/v1/article/{limit}/{offset} | Mengambil semua data artikel berdasarkan limit dan offset (pagination) |
-| POST | /api/v1/article | Membuat artikel baru |
-| GET | /api/v1/article/{id} | Mengambil data artikel berdasarkan Id |
-| PUT | /api/v1/article/{id} | Mengupdate data artikel berdasarkan Id |
-| DELETE | /api/v1/article/{id} | Menghapus data artikel berdasarkan Id |
+| GET | /api/v1/articles/{limit}/{offset} | Mengambil semua data artikel berdasarkan limit dan offset (pagination) |
+| POST | /api/v1/articles | Membuat artikel baru |
+| GET | /api/v1/articles/{id} | Mengambil data artikel berdasarkan Id |
+| PUT | /api/v1/articles/{id} | Mengupdate data artikel berdasarkan Id |
+| DELETE | /api/v1/articles/{id} | Menghapus data artikel berdasarkan Id |
