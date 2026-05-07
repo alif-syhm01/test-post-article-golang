@@ -10,7 +10,7 @@
       "name": "Articles",
       "item": [
         {
-          "name": "Get All Articles",
+          "name": "Get All Paginate Articles",
           "request": {
             "auth": {
               "type": "noauth"
@@ -144,6 +144,30 @@
               ]
             },
             "description": "## DELETE Article\n\nmenghapus artikel dengan berdasarkan id.\n\n### URL\n\nDELETE {{base_url}}/articles/{id}\n\n### Path Variables\n\n- id: Integer | Required | Id yang ada pada data article dalam database\n    \n\n### Example Request\n\nDELETE {{base_url}}/articles/1\n\n### Success Response\n\n- Code: 204 No Content\n    \n\n### Error Response\n\n- Code: 404 Not Found\n    \n- Body: Post not found message\n    \n- Code: 500 Status Internal Server Error\n    \n- Body: Status internal server error message"
+          },
+          "response": []
+        },
+        {
+          "name": "Gel All Articles",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/articles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "articles"
+              ]
+            }
           },
           "response": []
         }
