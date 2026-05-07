@@ -33,10 +33,10 @@ func (r *PostRepository) Create(post *model.Post) error {
 	return nil
 }
 
-func (r *PostRepository) GetAll(limit, offset int) ([]model.Post, error) {
-	query := "SELECT id, title, content, category, created_date, updated_date, status FROM posts LIMIT ? OFFSET ?"
+func (r *PostRepository) GetAll() ([]model.Post, error) {
+	query := "SELECT id, title, content, category, created_date, updated_date, status FROM posts"
 
-	rows, err := r.DB.Query(query, limit, offset)
+	rows, err := r.DB.Query(query)
 
 	if err != nil {
 		return nil, err
@@ -55,6 +55,38 @@ func (r *PostRepository) GetAll(limit, offset int) ([]model.Post, error) {
 	}
 
 	return posts, nil
+}
+
+func (r *PostRepository) GetAllPaginate(limit, offset int) ([]model.Post, int, error) {
+	var total int
+
+	err := r.DB.QueryRow("SELECT COUNT(*) FROM posts").Scan(&total)
+
+	if err != nil {
+		return nil, 0, err
+	}
+
+	query := "SELECT id, title, content, category, created_date, updated_date, status FROM posts LIMIT ? OFFSET ?"
+
+	rows, err := r.DB.Query(query, limit, offset)
+
+	if err != nil {
+		return nil, 0, err
+	}
+
+	defer rows.Close()
+
+	var posts []model.Post
+
+	for rows.Next() {
+		var p model.Post
+
+		rows.Scan(&p.ID, &p.Title, &p.Content, &p.Category, &p.CreatedDate, &p.UpdatedDate, &p.Status)
+
+		posts = append(posts, p)
+	}
+
+	return posts, total, nil
 }
 
 func (r *PostRepository) GetById(id int) (*model.Post, error) {

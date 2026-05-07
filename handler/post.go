@@ -9,6 +9,13 @@ import (
 	"test-post-article/services"
 )
 
+type GetAllResponse struct {
+	Data   []model.Post `json:"data"`
+	Total  int          `json:"total"`
+	Limit  int          `json:"limit"`
+	Offset int          `json:"offset"`
+}
+
 type PostHandler struct {
 	Service *services.PostService
 }
@@ -61,13 +68,7 @@ func getPaginationParams(w http.ResponseWriter, r *http.Request) (limit int, off
 }
 
 func (h *PostHandler) GetAll(w http.ResponseWriter, r *http.Request) {
-	limit, offset, ok := getPaginationParams(w, r)
-
-	if !ok {
-		return
-	}
-
-	posts, err := h.Service.GetAll(limit, offset)
+	posts, err := h.Service.GetAll()
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -75,6 +76,30 @@ func (h *PostHandler) GetAll(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(posts)
+}
+
+func (h *PostHandler) GetAllPaginate(w http.ResponseWriter, r *http.Request) {
+	limit, offset, ok := getPaginationParams(w, r)
+
+	if !ok {
+		return
+	}
+
+	posts, total, err := h.Service.GetAllPaginate(limit, offset)
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	response := GetAllResponse{
+		Data:   posts,
+		Total:  total,
+		Limit:  limit,
+		Offset: offset,
+	}
+
+	json.NewEncoder(w).Encode(response)
 }
 
 func (h *PostHandler) Create(w http.ResponseWriter, r *http.Request) {

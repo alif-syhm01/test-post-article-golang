@@ -56,7 +56,8 @@ func main() {
 	h := handler.NewPostHandler(svc)
 	r := router.NewRouter()
 
-	r.GET("/api/v1/articles/{limit}/{offset}", h.GetAll)
+	r.GET("/api/v1/articles", h.GetAll)
+	r.GET("/api/v1/articles/{limit}/{offset}", h.GetAllPaginate)
 	r.POST("/api/v1/articles", h.Create)
 	r.GET("/api/v1/articles/{id}", h.GetById)
 	r.PUT("/api/v1/articles/{id}", h.Update)

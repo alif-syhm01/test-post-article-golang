@@ -24,7 +24,7 @@ func postValidation(post *model.Post) error {
 	}
 
 	if post.Content == "" {
-		return errors.New("post is required.")
+		return errors.New("content is required.")
 	}
 
 	if post.Status == "" {
@@ -40,7 +40,7 @@ func postValidation(post *model.Post) error {
 	}
 
 	if len(post.Category) < 3 {
-		return errors.New("post must be at least 3 characters.")
+		return errors.New("category must be at least 3 characters.")
 	}
 
 	if post.Status != "publish" && post.Status != "draft" && post.Status != "trash" {
@@ -58,8 +58,12 @@ func (s *PostService) Create(post *model.Post) error {
 	return s.Repo.Create(post)
 }
 
-func (s *PostService) GetAll(limit, offset int) ([]model.Post, error) {
-	return s.Repo.GetAll(limit, offset)
+func (s *PostService) GetAll() ([]model.Post, error) {
+	return s.Repo.GetAll()
+}
+
+func (s *PostService) GetAllPaginate(limit, offset int) ([]model.Post, int, error) {
+	return s.Repo.GetAllPaginate(limit, offset)
 }
 
 func (s *PostService) GetById(id int) (*model.Post, error) {
